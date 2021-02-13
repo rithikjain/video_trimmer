@@ -27,7 +27,8 @@ class Trimmer {
   Future<void> loadVideo({@required File videoFile}) async {
     currentVideoFile = videoFile;
     if (currentVideoFile != null) {
-      videoPlayerController = VideoPlayerController.file(currentVideoFile);
+      videoPlayerController =
+          VideoPlayerController.network(currentVideoFile.path);
       await videoPlayerController.initialize().then((_) {
         TrimEditor(
           viewerHeight: 50,
